@@ -11,6 +11,10 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"]
+    @contribution = Contribution.new
+    @random_no = rand(5)
+    @random_image = @images[@random_no]
   end
 
   def create
@@ -20,6 +24,19 @@ class StoriesController < ApplicationController
       redirect_to stories_path
     else
       render :index
+    end
+  end
+
+  def edit
+    @story = Story.find(params[:id])
+  end
+
+  def update
+    @story = Story.find(params[:id])
+    if @story.update(story_params)
+      redirect_to story_path
+    else
+      render :edit
     end
   end
 

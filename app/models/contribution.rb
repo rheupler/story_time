@@ -1,6 +1,7 @@
 class Contribution < ActiveRecord::Base
-  validates :image, :presence => true
+  # validates :image, :presence => true
   validates :sentence, :presence => true
-  belongs_to :stories
-  belongs_to :users
+  belongs_to :story
+  belongs_to :user
+
 end

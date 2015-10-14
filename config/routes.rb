@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :stories do
-    resource :contributions
+  resources :stories, except: [:new] do
+    resources :contributions, except: [:show]
   end
-  resource :users do
-    resource :contributions
+  resources :users do
+    resources :contributions, only: [:index]
   end
 
   root 'stories#index'
