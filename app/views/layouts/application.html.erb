@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+    <div class='navbar navbar-default navbar-fixed-top'>
+      <a class='pull-left' href="#">Story Time</a>
+    </div>
+<div class="container">
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+    <%= yield %>
+</div>
 </body>
 </html>

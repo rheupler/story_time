@@ -1,0 +1,17 @@
+
+
+<h2>edit delete next to each story</h2>
+
+<% if @stories.any? %>
+
+<h2>Latest Stories:</h2>
+<ul>
+  <% @stories.each do |story| %>
+      <li><%= link_to story.title, story_path(story) %></li>
+  <% end %>
+</ul>
+<% else %>
+<h2>There are no stories yet!</h2>
+
+<% end %>
+<%= render 'form' %>
