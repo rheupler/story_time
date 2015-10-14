@@ -1,8 +1,17 @@
 
-<h2><%= @story.title %></h2>
+<center><h1><%= @story.title %></h1>
+  <hr>
 
-<% @story.contributions.each do |contribution| %>
-<h4><%= contribution.sentence %></h4>
-<% end %>
+<% if @story.contributions.any? %>
+  <% @story.contributions.each do |contribution| %>
+  <h2><%= contribution.sentence %></h2>
+  <p><%= link_to "Delete", story_contribution_path(@story, contribution),
+    :data => {:confirm => "You sure?",
+      :method => 'delete'}%></p>
+      <% end %>
+  <% else %>
+  <h2>There are no contributions yet!</h2>
+  <% end %>
 
 <h2><%= link_to "Contribute to this story!", new_story_contribution_path(@story) %></h2>
+</center>

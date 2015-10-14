@@ -1,5 +1,7 @@
 <%= form_for [@story, @contribution] do |f| %>
   <%= f.label :sentence %>
-  <%= f.text_area :sentence %>
+  <%= f.text_area :sentence, :class => 'form-control'%>
+  <%= f.hidden_field :image, :value => "Pepe/#{rand(44)}.jpg" %>
+  <br>
   <button type="submit" class="btn btn-info">Submit</button>
 <% end %>

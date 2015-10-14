@@ -1,17 +1,10 @@
-
-
-<h2>edit delete next to each story</h2>
-
-<% if @stories.any? %>
+<h1>Add your own story!</h1>
+<%= render 'form' %>
+<hr>
 
 <h2>Latest Stories:</h2>
-<ul>
-  <% @stories.each do |story| %>
-      <li><%= link_to story.title, story_path(story) %></li>
+<% @stories.each do |story| %>
+  <div class="col-md-4 custom">
+    <h2><%= link_to story.title, story_path(story) %></h2>
+  </div>
   <% end %>
-</ul>
-<% else %>
-<h2>There are no stories yet!</h2>
-
-<% end %>
-<%= render 'form' %>

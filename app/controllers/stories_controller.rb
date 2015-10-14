@@ -9,6 +9,12 @@ class StoriesController < ApplicationController
     @story = Story.new
   end
 
+  def destroy
+    @story = Story.find(params[:id])
+    @story.destroy
+    redirect_to stories_path
+  end
+
   def show
     @story = Story.find(params[:id])
     @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"]

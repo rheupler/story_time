@@ -12,11 +12,19 @@ class ContributionsController < ApplicationController
     @contribution = Contribution.new
   end
 
+  def destroy
+    @story = Story.find(params[:story_id])
+    @contribution = Contribution.find(params[:id])
+    @contribution.destroy
+    redirect_to story_path(@story)
+  end
+
   def create
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new(contribution_params)
     if @contribution.save
       flash[:notice] = "Sentence added!"
+      binding.pry
       redirect_to story_path(@story)
     else
       render :new
@@ -29,6 +37,6 @@ class ContributionsController < ApplicationController
 
   private
   def contribution_params
-    params.require(:contribution).permit(:sentence)
+    params.require(:contribution).permit(:sentence, :image)
   end
 end
