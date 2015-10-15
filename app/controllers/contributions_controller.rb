@@ -9,6 +9,7 @@ class ContributionsController < ApplicationController
 
   def new
     @story = Story.find(params[:story_id])
+
     @contribution = Contribution.new
     @image = "Pepe/#{rand(44)}.jpg"
   end
@@ -23,6 +24,7 @@ class ContributionsController < ApplicationController
   def create
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new(contribution_params)
+    @contribution.user_id=current_user.id if current_user
     if @contribution.save
       flash[:notice] = "Sentence added!"
       redirect_to story_path(@story)

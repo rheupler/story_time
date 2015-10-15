@@ -17,10 +17,8 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"]
     @contribution = Contribution.new
-    @random_no = rand(5)
-    @random_image = @images[@random_no]
+
   end
 
   def create
