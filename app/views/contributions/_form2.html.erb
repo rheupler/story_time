@@ -1,0 +1,6 @@
+<h1>test</h1>
+<%= form_for [@story, @contribution] do |f| %>
+  <%= f.hidden_field :image, :value => @image %>
+  <br>
+  <button type="submit" class="btn btn-info">Contribute to this story!</button>
+<% end %>

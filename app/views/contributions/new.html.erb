@@ -1,4 +1,5 @@
 <div class="new-contribution-form">
+  <% if user_signed_in? %>
   <h2>Write a sentence inspired by this image:</h2>
 
   <%= render 'form' %>
@@ -6,5 +7,12 @@
     <a href="javascript:history.back()"><button class="btn btn-warning">Cancel</button></a>
     <br>
   <br>
-  <%= image_tag "Pepe/#{rand(44)}.jpg" %>
+  <%= image_tag @image %>
+
+  <% else %>
+
+  <h2>You must sign in to continue this story!</h2>
+
+  <% end %>
+
 </div>

@@ -4,15 +4,24 @@
 
 <% if @story.contributions.any? %>
   <% @story.contributions.each do |contribution| %>
-  <h2><%= contribution.sentence %></h2>
-  <img src='/assests/images/<%= contribution.image %>'>
-  <p><%= link_to "Delete", story_contribution_path(@story, contribution),
-    :data => {:confirm => "You sure?",
-      :method => 'delete'}%></p>
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= contribution.sentence %></h3>
+      </div>
+      <div class="panel-body">
+        <p><img src="/assets/<%= contribution.image %>"></p>
+        <p><%= link_to "Delete", story_contribution_path(@story, contribution),
+          :data => {:confirm => "You sure?",
+            :method => 'delete'} %></p>
+      </div>
+    </div>
+  </div>
       <% end %>
   <% else %>
   <h2>There are no contributions yet!</h2>
   <% end %>
 
 <h2><%= link_to "Contribute to this story!", new_story_contribution_path(@story) %></h2>
+
 </center>

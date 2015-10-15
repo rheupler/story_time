@@ -2,14 +2,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: 'Inconsolata', ;
+}
 .container {
   padding-top: 50px;
 }
 
 img {
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .new-contribution-form {
   text-align: center;
 }
+
+.img-pepe {
+  height: 45px;
+
+}
+
+.custom-brand {
+  padding-bottom: 10px;
+  padding-top: 3px !important;
+}
+
+// .sentences:hover {
+//     position: relative;
+// }
+// .sentences:hover:after {
+//     content: url(http://dreamatico.com/data_images/kitten/kitten-2.jpg);
+//     display: block;
+//     // position: absolute;
+//     left: 123px; /* change this value to one that suits you */
+//     top: 56px; /* change this value to one that suits you */
+// }

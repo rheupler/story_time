@@ -10,6 +10,7 @@ class ContributionsController < ApplicationController
   def new
     @story = Story.find(params[:story_id])
     @contribution = Contribution.new
+    @image = "Pepe/#{rand(44)}.jpg"
   end
 
   def destroy
