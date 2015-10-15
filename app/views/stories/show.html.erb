@@ -1,19 +1,25 @@
 
-<center><h1><%= @story.title %></h1>
+<center><h1 class="bold"><%= @story.title %></h1>
+  <p>Story started by <%= @author %></p>
   <hr>
 
 <% if @story.contributions.any? %>
   <% @story.contributions.each do |contribution| %>
   <div class="col-md-12">
-    <div class="panel panel-primary">
+    <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title"><%= contribution.sentence %></h3>
       </div>
       <div class="panel-body">
         <p><img src="/assets/<%= contribution.image %>"></p>
-        <p><%= link_to "Delete", story_contribution_path(@story, contribution),
-          :data => {:confirm => "You sure?",
-            :method => 'delete'} %></p>
+        <p>
+          Added by <%= User.find(contribution.user_id).username %>
+          <% if current_user && current_user.id == contribution.user_id %>
+            | <%= link_to "Delete", story_contribution_path(@story, contribution),
+                        :data => {:confirm => "You sure?",
+                        :method => 'delete'} %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>
@@ -22,6 +28,6 @@
   <h2>There are no contributions yet!</h2>
   <% end %>
 
-<h2><%= link_to "Contribute to this story!", new_story_contribution_path(@story) %></h2>
+<h2><%= link_to "Continue this story!", new_story_contribution_path(@story) %></h2>
 
 </center>

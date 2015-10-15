@@ -1,32 +1,36 @@
-<h1>Add your own story!</h1>
-<%= render 'form' %>
+<% if user_signed_in? %>
+  <%= render 'form' %>
+<% else %>
+  <p>You must have an account to create a new story!</p>
+  <% end  %>
 <hr>
 
 
 
-<h2>Latest Stories:</h2>
-<% @stories.each do |story| %>
-  <div class="col-md-4 custom">
+<h1 class="bold">Latest Stories:</h1>
+<br>
 
+  <% @stories.each do |story| %>
+  <div class="col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><%= link_to story.title, story_path(story) %></h3>
+        <p>Started by <%= User.find(story.user_id).username %></p>
       </div>
       <div class="panel-body">
         <% if story.contributions.any? %>
           <h3>Latest contribution:</h3>
           <p><img src="/assets/<%= story.contributions.last.image %>" class="img-responsive"></p>
           <p><%= story.contributions.last.sentence %></p>
-          <% else %>
-          <p>No contributions yet!</p>
           <% end %>
         <h4><%= link_to "Continue this story!", story_path(story) %></h4>
-        <p><%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, story_path(story),
-          :data => {:confirm => "You sure?",
-            :method => 'delete'} %></p>
+        <% if current_user && current_user.id == story.user_id %>
+           <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, story_path(story),
+                      :data => {:confirm => "You sure?",
+                      :method => 'delete'} %>
+          <% end %>
+
       </div>
     </div>
-
-
   </div>
   <% end %>

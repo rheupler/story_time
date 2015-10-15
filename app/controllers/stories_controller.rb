@@ -3,6 +3,7 @@ class StoriesController < ApplicationController
     @stories = Story.all
     @story = Story.new
     @sentences = @story.contributions.all
+
   end
 
   def new
@@ -18,11 +19,13 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @contribution = Contribution.new
+    @author = User.find(@story.user_id).username
 
   end
 
   def create
     @story = Story.new(story_params)
+    @story.user_id=current_user.id if current_user
     if @story.save
       flash[:notice] = "Story added!"
       redirect_to stories_path
