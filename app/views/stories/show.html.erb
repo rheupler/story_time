@@ -5,6 +5,7 @@
 <% if @story.contributions.any? %>
   <% @story.contributions.each do |contribution| %>
   <h2><%= contribution.sentence %></h2>
+  <img src='/assests/images/<%= contribution.image %>'>
   <p><%= link_to "Delete", story_contribution_path(@story, contribution),
     :data => {:confirm => "You sure?",
       :method => 'delete'}%></p>

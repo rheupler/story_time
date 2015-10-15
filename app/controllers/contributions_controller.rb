@@ -24,7 +24,6 @@ class ContributionsController < ApplicationController
     @contribution = @story.contributions.new(contribution_params)
     if @contribution.save
       flash[:notice] = "Sentence added!"
-      binding.pry
       redirect_to story_path(@story)
     else
       render :new
