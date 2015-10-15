@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  
+
   </head>
 <body>
 
@@ -23,10 +23,12 @@
       </button>
       <a class="navbar-brand" href="/">Stories with Pepe</a>
       <a class="custom-brand navbar-brand" href="/"><img class='img-pepe' src="/assets/web_images/Pepe.png" alt="" /></a>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <!-- <ul class="nav navbar-nav">
         <li class="active"><a href="#">Stories <span class="sr-only">(current)</span></a></li>
 
@@ -35,6 +37,7 @@
 
       </form>
       <ul class="nav navbar-nav navbar-right">
+        
         <% if user_signed_in? %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to current_user.username, edit_user_registration_path %></li>

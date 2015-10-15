@@ -1,6 +1,6 @@
 
 <center><h1 class="bold"><%= @story.title %></h1>
-  <p>Story started by <%= @author %></p>
+  <p>Story started by <%= @author %> <%= @story.created_at.strftime("%m/%d/%Y")%></p>
   <hr>
 
 <% if @story.contributions.any? %>
@@ -13,7 +13,7 @@
       <div class="panel-body">
         <p><img src="/assets/<%= contribution.image %>"></p>
         <p>
-          Added by <%= User.find(contribution.user_id).username %>
+          Added by <%= User.find(contribution.user_id).username %> on <%= contribution.created_at.strftime("%m/%d/%Y")%>
           <% if current_user && current_user.id == contribution.user_id %>
             | <%= link_to "Delete", story_contribution_path(@story, contribution),
                         :data => {:confirm => "You sure?",

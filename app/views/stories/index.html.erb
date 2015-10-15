@@ -15,7 +15,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><%= link_to story.title, story_path(story) %></h3>
-        <p>Started by <%= User.find(story.user_id).username %></p>
+        <p>Started by <%= User.find(story.user_id).username %> on <%= story.created_at.strftime("%m/%d/%Y")%></p>
       </div>
       <div class="panel-body">
         <% if story.contributions.any? %>

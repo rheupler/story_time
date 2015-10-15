@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20151015203020) do
   enable_extension "plpgsql"
 
   create_table "contributions", force: :cascade do |t|
-    t.string  "image"
-    t.string  "sentence"
-    t.integer "user_id"
-    t.integer "story_id"
+    t.string   "image"
+    t.string   "sentence"
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", force: :cascade do |t|
@@ -28,12 +30,16 @@ ActiveRecord::Schema.define(version: 20151015203020) do
   end
 
   create_table "stories", force: :cascade do |t|
-    t.string  "title"
-    t.integer "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
