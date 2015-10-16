@@ -1,4 +1,4 @@
-class User < ApplicationController
+class UserController < ApplicationController
 
   private
 
