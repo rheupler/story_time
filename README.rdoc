@@ -1,27 +1,34 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Story with Pepe
 
-Things you may want to cover:
+Project that lets users write stories together by only submitting one sentence at a time. They are given a random image and have to write a sentence based on that image.
 
-* Ruby version
+## Installation
 
-* System dependencies
+Fork this project
+Run 'git clone https://github.com/rheupler/story_time.git'
+Make sure you have Postgres running
+Run 'rake db:create' to create database
+Run 'rake db:migrate' to load schema
+Run 'rails s' to serve localhost:3000
 
-* Configuration
 
-* Database creation
+## Contributing
 
-* Database initialization
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Credits
 
-* Deployment instructions
+Created by: Ryan Heupler and Leah Klamkin
 
-* ...
+
+
 
 
 Please feel free to use a different markup language if you do not plan to run
